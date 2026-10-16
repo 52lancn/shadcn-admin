@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#daf0e8"/>
+<stop offset="100%" stop-color="#aae2dd"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><path d="M14 74c0-18 12-30 36-30s36 12 36 30-14 12-36 12S14 92 14 74z" fill="#208c65"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M24 62c6-10 16-14 26-14s20 4 26 14c-8-4-16-6-26-6s-18 2-26 6z" fill="#69e2e6" opacity="0.7"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M38 48l24 30" stroke="#69e2e6" stroke-width="3" opacity="0.4" fill="none"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#208c65">星渡 记忆棉枕</text>
+</svg>

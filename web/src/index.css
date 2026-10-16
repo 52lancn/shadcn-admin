@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    /* 侧边栏语义变量（默认与浅色主题一致） */
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-muted: 240 3.8% 46.1%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-border: 240 5.9% 90%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar: 240 10% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-muted: 240 5% 64.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+  }
+
+  /* 侧边栏背景色调：见下方非 layer 区块的 .sidebar-* 规则 */
+}
+
+/*
+ * 主题变体必须放在 @layer 之外：
+ * Tailwind v3 会按 content 扫描剔除 @layer base/components 中未被源码引用的自定义类，
+ * 放在 layer 外可保证 .theme-* 永远输出。无 layer 规则优先级高于 layer 内规则，
+ * 因此与 .dark 叠加时这里胜出（主色保持彩色、背景仅在浅色模式下覆盖）。
+ */
+.theme-blue {
+  --primary: 221 83% 53%;
+  --primary-foreground: 0 0% 98%;
+  --ring: 221 83% 53%;
+}
+.theme-green {
+  --primary: 142 71% 45%;
+  --primary-foreground: 0 0% 98%;
+  --ring: 142 71% 45%;
+}
+/* 翡翠工作台：翡翠绿主色 + 浅灰页面背景（配合深色侧边栏即还原设计图） */
+.theme-emerald {
+  --primary: 160 85% 36%;
+  --primary-foreground: 0 0% 98%;
+  --ring: 160 85% 36%;
+}
+.theme-emerald:not(.dark) {
+  --background: 210 20% 97%;
+}
+.theme-violet {
+  --primary: 262 83% 58%;
+  --primary-foreground: 0 0% 98%;
+  --ring: 262 83% 58%;
+}
+.theme-rose {
+  --primary: 347 77% 50%;
+  --primary-foreground: 0 0% 98%;
+  --ring: 347 77% 50%;
+}
+.theme-amber {
+  --primary: 32 95% 44%;
+  --primary-foreground: 0 0% 98%;
+  --ring: 32 95% 44%;
+}
+/* 侧边栏背景色调：不受亮/暗模式影响，可独立选择 */
+.sidebar-white {
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 240 10% 12%;
+  --sidebar-muted: 240 3.8% 46%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-border: 240 5.9% 90%;
+}
+.sidebar-gray {
+  --sidebar: 210 20% 96%;
+  --sidebar-foreground: 240 10% 12%;
+  --sidebar-muted: 240 3.8% 42%;
+  --sidebar-accent: 210 20% 91%;
+  --sidebar-border: 210 16% 87%;
+}
+.sidebar-graphite {
+  --sidebar: 220 8% 18%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-muted: 220 6% 70%;
+  --sidebar-accent: 220 8% 24%;
+  --sidebar-border: 220 8% 26%;
+}
+.sidebar-ink {
+  --sidebar: 216 10% 10%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-muted: 217 8% 62%;
+  --sidebar-accent: 217 9% 16%;
+  --sidebar-border: 217 9% 15%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Scrollbar */
+  .scroll-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scroll-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+  }
+  .scroll-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Card with subtle gradient border */
+  .card-elevated {
+    background:
+      linear-gradient(hsl(var(--card)) 0 0) padding-box,
+      linear-gradient(135deg, hsl(240 5% 90% / 0.4), hsl(240 5% 80% / 0.05)) border-box;
+    border: 1px solid transparent;
+  }
+  .dark .card-elevated {
+    background:
+      linear-gradient(hsl(var(--card)) 0 0) padding-box,
+      linear-gradient(135deg, hsl(240 10% 18% / 0.6), hsl(240 10% 8% / 0.05)) border-box;
+  }
+
+  /* Loading skeleton shimmer */
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    @apply bg-muted;
+  }
+  .skeleton::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      hsl(var(--background) / 0.5) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    @apply animate-shimmer;
+  }
+
+  .glass {
+    backdrop-filter: blur(8px);
+    background: hsl(var(--background) / 0.7);
+  }
+}

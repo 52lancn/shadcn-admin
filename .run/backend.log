@@ -1,0 +1,4 @@
+{"@timestamp":"2026-10-15T13:01:29.008+08:00","caller":"sqlx/stmt.go:274","content":"sql query: SELECT 1","duration":"0.5ms","level":"info","span":"959312c321857638","trace":"3b82fa71c59b6a9414150b8176384681"}
+Admin API server listening on 0.0.0.0:8088 ...
+{"@timestamp":"2026-10-15T13:01:32.421+08:00","caller":"middleware/middleware.go:23","content":"[HTTP] GET /api/health -> 200 in 0s","level":"info"}
+{"@timestamp":"2026-10-15T13:01:32.422+08:00","caller":"handler/loghandler.go:147","content":"[HTTP] 200 - GET /api/health - [::1]:55567 - curl/8.13.0","duration":"1.0ms","level":"info","span":"957084d69b6e0ae1","trace":"2206deba40cdb8eacd90e60fde7db169"}

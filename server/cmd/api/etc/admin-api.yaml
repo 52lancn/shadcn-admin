@@ -1,0 +1,23 @@
+Name: admin-api
+Host: 0.0.0.0
+Port: 8088
+
+Mysql:
+  DataSource: root:root123@tcp(127.0.0.1:3307)/admin_db?charset=utf8mb4&parseTime=true&loc=Local
+
+Redis:
+  Host: 127.0.0.1:6380
+  Type: node
+
+Auth:
+  AccessSecret: "ChangeThisToARandomLongString-please-32bytes-or-more!"
+  AccessExpire: 604800   # 7 days in seconds
+
+CORS:
+  AllowOrigins:
+    - "http://localhost:5173"
+    - "http://localhost:4173"
+    - "http://localhost"
+  AllowMethods: [GET, POST, PUT, DELETE, OPTIONS]
+  AllowHeaders: [Content-Type, Authorization, X-Requested-With]
+  AllowCredentials: true

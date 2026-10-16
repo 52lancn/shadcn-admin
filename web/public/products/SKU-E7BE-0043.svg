@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f0dae1"/>
+<stop offset="100%" stop-color="#e2aaac"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><circle cx="66" cy="30" r="10" fill="#e67669"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M66 12v-6M66 54v-6M48 30h-6M90 30h-6M54 18l-4-4M78 42l4 4" stroke="#e67669" stroke-width="3" stroke-linecap="round"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M24 40h34v44a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8z" fill="#8c2041"/></g>
+<g transform="translate(90,66) scale(3.00)"><rect x="32" y="28" width="18" height="12" rx="4" fill="#e67669"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#8c2041">南屿 高倍防晒乳</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#daedf0"/>
+<stop offset="100%" stop-color="#aacce2"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><path d="M16 60a34 30 0 0 1 68 0v6H16z" fill="#207e8c"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M30 40h12M46 34h14M64 40h10" stroke="#69a4e6" stroke-width="6" stroke-linecap="round"/></g>
+<g transform="translate(90,66) scale(3.00)"><rect x="16" y="64" width="68" height="8" rx="4" fill="#69a4e6"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M40 72l6 14M60 72l-6 14" stroke="#207e8c" stroke-width="5" stroke-linecap="round"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#207e8c">南屿 骑行头盔</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#0a0e28"/>
+<stop offset="55%" stop-color="#2b257d"/>
+<stop offset="100%" stop-color="#0a0e28"/>
+</linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="70%">
+<stop offset="0%" stop-color="#8d5fdc" stop-opacity="0.35"/>
+<stop offset="100%" stop-color="#8d5fdc" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<rect width="1000" height="1250" fill="url(#sky)"/>
+<circle cx="529" cy="580" r="528" fill="none" stroke="#8d5fdc" stroke-width="2.5" opacity="0.10"/>
+<circle cx="529" cy="580" r="480" fill="none" stroke="#ddb473" stroke-width="2.4" opacity="0.15"/>
+<circle cx="529" cy="580" r="432" fill="none" stroke="#8d5fdc" stroke-width="2.3" opacity="0.21"/>
+<circle cx="529" cy="580" r="384" fill="none" stroke="#ddb473" stroke-width="2.1" opacity="0.27"/>
+<circle cx="529" cy="580" r="336" fill="none" stroke="#8d5fdc" stroke-width="2.0" opacity="0.32"/>
+<circle cx="529" cy="580" r="288" fill="none" stroke="#ddb473" stroke-width="1.8" opacity="0.38"/>
+<circle cx="529" cy="580" r="240" fill="none" stroke="#8d5fdc" stroke-width="1.7" opacity="0.43"/>
+<circle cx="529" cy="580" r="192" fill="none" stroke="#ddb473" stroke-width="1.6" opacity="0.48"/>
+<circle cx="529" cy="580" r="144" fill="none" stroke="#8d5fdc" stroke-width="1.4" opacity="0.54"/>
+<circle cx="529" cy="580" r="96" fill="none" stroke="#ddb473" stroke-width="1.3" opacity="0.59"/>
+<circle cx="529" cy="580" r="48" fill="none" stroke="#8d5fdc" stroke-width="1.1" opacity="0.65"/>
+<circle cx="745" cy="689" r="7" fill="#c7c1e0" opacity="0.64"/>
+<circle cx="644" cy="693" r="9" fill="#c7c1e0" opacity="0.57"/>
+<circle cx="1052" cy="854" r="12" fill="#c7c1e0" opacity="0.83"/>
+<circle cx="950" cy="821" r="14" fill="#c7c1e0" opacity="0.57"/>
+<circle cx="698" cy="681" r="14" fill="#c7c1e0" opacity="0.89"/>
+<circle cx="529" cy="580" r="75" fill="#8d5fdc" opacity="0.85"/>
+<rect width="1000" height="1250" fill="url(#glow)"/>
+</svg>

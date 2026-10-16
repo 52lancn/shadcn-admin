@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#091829"/>
+<stop offset="55%" stop-color="#223b80"/>
+<stop offset="100%" stop-color="#091829"/>
+</linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="70%">
+<stop offset="0%" stop-color="#605be0" stop-opacity="0.35"/>
+<stop offset="100%" stop-color="#605be0" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<rect width="1200" height="800" fill="url(#sky)"/>
+<circle cx="277" cy="208" r="88" fill="#c0c4e1" opacity="0.92"/>
+<circle cx="277" cy="208" r="152" fill="#605be0" opacity="0.16"/>
+<polygon points="0,800 0,416 0,367 171,413 343,402 514,381 686,318 857,352 1029,333 1200,338 1200,416 1200,800" fill="#223b80" opacity="0.28"/>
+<polygon points="0,800 0,520 0,481 171,469 343,464 514,455 686,480 857,438 1029,467 1200,453 1200,520 1200,800" fill="#223b80" opacity="0.48"/>
+<polygon points="0,800 0,624 0,584 171,548 343,612 514,555 686,598 857,621 1029,620 1200,614 1200,624 1200,800" fill="#091829" opacity="0.68"/>
+<polygon points="0,800 0,728 0,675 171,683 343,713 514,681 686,675 857,661 1029,666 1200,664 1200,728 1200,800" fill="#091829" opacity="0.88"/>
+<rect width="1200" height="800" fill="url(#glow)"/>
+</svg>
