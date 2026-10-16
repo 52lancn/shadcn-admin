@@ -13,6 +13,9 @@ export default defineConfig(({ mode }: ConfigEnv) => {
   const useMock = env.VITE_USE_MOCK === 'true'
 
   return {
+    // 仅 Mock 预览（build:preview）通过 .env.preview 的 VITE_BASE 设置 GitHub Pages 项目页子路径；
+    // 真实部署（dev / build）不加载 .env.preview → base 默认 '/'，对业务零侵入
+    base: env.VITE_BASE || '/',
     plugins: [
       react(),
       // 仅 Mock 轨道启用 vite-plugin-mock
