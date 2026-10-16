@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#daf0e8"/>
+<stop offset="100%" stop-color="#aae2dd"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><path d="M18 40h64l-6 42H24z" fill="#208c65"/></g>
+<g transform="translate(90,66) scale(3.00)"><rect x="14" y="30" width="72" height="14" rx="6" fill="#69e2e6"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M40 30v-8a10 10 0 0 1 20 0v8" fill="none" stroke="#69e2e6" stroke-width="5"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M36 56h28" stroke="#69e2e6" stroke-width="4" stroke-linecap="round" opacity="0.8"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#208c65">北屿 折叠收纳箱</text>
+</svg>

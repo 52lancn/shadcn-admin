@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f0e4da"/>
+<stop offset="100%" stop-color="#e2d3aa"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><circle cx="34" cy="42" r="20" fill="#8c5320"/></g>
+<g transform="translate(90,66) scale(3.00)"><circle cx="34" cy="42" r="12" fill="#e6d669" opacity="0.8"/></g>
+<g transform="translate(90,66) scale(3.00)"><circle cx="66" cy="58" r="20" fill="#8c5320"/></g>
+<g transform="translate(90,66) scale(3.00)"><circle cx="66" cy="58" r="12" fill="#e6d669" opacity="0.8"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M34 22v40M14 42h40M66 38v40M46 58h40" stroke="#e6d669" stroke-width="2" opacity="0.6"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#8c5320">云枢 冻干水果脆</text>
+</svg>

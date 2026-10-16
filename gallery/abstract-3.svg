@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700" width="1400" height="700">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#091829"/>
+<stop offset="55%" stop-color="#223b80"/>
+<stop offset="100%" stop-color="#091829"/>
+</linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="70%">
+<stop offset="0%" stop-color="#605be0" stop-opacity="0.35"/>
+<stop offset="100%" stop-color="#605be0" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<rect width="1400" height="700" fill="url(#sky)"/>
+<circle cx="767" cy="366" r="370" fill="none" stroke="#605be0" stroke-width="2.5" opacity="0.10"/>
+<circle cx="767" cy="366" r="336" fill="none" stroke="#e08f70" stroke-width="2.4" opacity="0.15"/>
+<circle cx="767" cy="366" r="302" fill="none" stroke="#605be0" stroke-width="2.3" opacity="0.21"/>
+<circle cx="767" cy="366" r="269" fill="none" stroke="#e08f70" stroke-width="2.1" opacity="0.27"/>
+<circle cx="767" cy="366" r="235" fill="none" stroke="#605be0" stroke-width="2.0" opacity="0.32"/>
+<circle cx="767" cy="366" r="202" fill="none" stroke="#e08f70" stroke-width="1.8" opacity="0.38"/>
+<circle cx="767" cy="366" r="168" fill="none" stroke="#605be0" stroke-width="1.7" opacity="0.43"/>
+<circle cx="767" cy="366" r="134" fill="none" stroke="#e08f70" stroke-width="1.6" opacity="0.48"/>
+<circle cx="767" cy="366" r="101" fill="none" stroke="#605be0" stroke-width="1.4" opacity="0.54"/>
+<circle cx="767" cy="366" r="67" fill="none" stroke="#e08f70" stroke-width="1.3" opacity="0.59"/>
+<circle cx="767" cy="366" r="34" fill="none" stroke="#605be0" stroke-width="1.1" opacity="0.65"/>
+<circle cx="920" cy="444" r="12" fill="#c0c4e1" opacity="0.48"/>
+<circle cx="985" cy="520" r="12" fill="#c0c4e1" opacity="0.67"/>
+<circle cx="865" cy="425" r="6" fill="#c0c4e1" opacity="0.58"/>
+<circle cx="953" cy="503" r="15" fill="#c0c4e1" opacity="0.40"/>
+<circle cx="940" cy="499" r="6" fill="#c0c4e1" opacity="0.40"/>
+<circle cx="767" cy="366" r="52" fill="#605be0" opacity="0.85"/>
+<rect width="1400" height="700" fill="url(#glow)"/>
+</svg>

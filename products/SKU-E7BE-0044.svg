@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f0dae1"/>
+<stop offset="100%" stop-color="#e2aaac"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><rect x="44" y="8" width="12" height="16" rx="5" fill="#e67669"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M38 24h24v10l6 10v42a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8V44l6-10z" fill="#8c2041"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M50 56c-6 8-6 14 0 20 6-6 6-12 0-20z" fill="#e67669"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#8c2041">岚川 护发精油</text>
+</svg>

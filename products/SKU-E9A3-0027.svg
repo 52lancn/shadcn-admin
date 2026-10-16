@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f0e4da"/>
+<stop offset="100%" stop-color="#e2d3aa"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><rect x="14" y="36" width="72" height="48" rx="8" fill="#8c5320"/></g>
+<g transform="translate(90,66) scale(3.00)"><rect x="14" y="30" width="72" height="14" rx="6" fill="#e6d669"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M50 30v54" stroke="#e6d669" stroke-width="6"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M36 30c-6-10 28-10 28 0" fill="none" stroke="#e6d669" stroke-width="5"/></g>
+<g transform="translate(90,66) scale(3.00)"><circle cx="34" cy="60" r="7" fill="#e6d669" opacity="0.8"/></g>
+<g transform="translate(90,66) scale(3.00)"><circle cx="66" cy="60" r="7" fill="#e6d669" opacity="0.8"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#8c5320">星渡 手作坚果礼盒</text>
+</svg>

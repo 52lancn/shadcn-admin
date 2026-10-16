@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#daedf0"/>
+<stop offset="100%" stop-color="#aacce2"/>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="url(#bg)"/>
+<circle cx="240" cy="216" r="156" fill="#ffffff" opacity="0.55"/>
+<g transform="translate(90,66) scale(3.00)"><path d="M34 42a16 14 0 0 1 32 0" fill="none" stroke="#69a4e6" stroke-width="6" stroke-linecap="round"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M24 42c0-8 6-12 26-12s26 4 26 12v34a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8z" fill="#207e8c"/></g>
+<g transform="translate(90,66) scale(3.00)"><rect x="34" y="58" width="32" height="18" rx="6" fill="#69a4e6" opacity="0.7"/></g>
+<g transform="translate(90,66) scale(3.00)"><path d="M42 70h16" stroke="#207e8c" stroke-width="4" stroke-linecap="round"/></g>
+<text x="240" y="446" text-anchor="middle" font-family="system-ui, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="30" font-weight="600" fill="#207e8c">云枢 战术背包</text>
+</svg>
