@@ -18,12 +18,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-size: 20
+          node-version: 20
 
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          # 锁文件为 lockfileVersion 9.0（pnpm 9+ 生成），8.x 无法读取，必须用 >=9
+          version: 12
 
       - name: Install Dependencies
         run: |
