@@ -1,5 +1,0 @@
-@tailwind base;
-@layer base {
-  .theme-test { --x: 1; }
-  .keep-test { --y: 2; }
-}
