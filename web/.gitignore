@@ -15,7 +15,7 @@ dist-ssr
 # 临时调试产物（本地验证用，勿提交）
 tmp_tw
 ssr_dist
-.edge_tmp
+.edge_tmp*
 shot_*.png
 
 # Editor directories and files

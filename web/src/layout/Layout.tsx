@@ -30,6 +30,7 @@ import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { useAuthStore, SettingsAPI, type RouteMenu } from '@/lib/api'
 import { storage } from '@/lib/http'
+import { DEFAULT_ROUTE } from '@/lib/routes'
 import {
   ColorToken,
   setSidebar,
@@ -441,8 +442,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const loadProfile = useAuthStore((s) => s.loadProfile)
   const menus = useAuthStore((s) => s.menus)
 
-  // 首个可访问菜单，用于 "/" 的默认跳转
+  // 根路径 "/" 的默认跳转目标：
+  // 优先 DEFAULT_ROUTE（/system/about），但必须确认当前用户有该菜单权限，
+  // 否则降级到「第一个可访问的菜单」，避免直接跳到未授权页。
   const firstPath = useMemo(() => {
+    const paths = new Set<string>()
+    const walkAll = (list: RouteMenu[]) => {
+      for (const m of list) {
+        if (m.type === 2 && m.path) paths.add(m.path)
+        if (m.children?.length) walkAll(m.children)
+      }
+    }
+    walkAll(menus)
+
+    if (paths.has(DEFAULT_ROUTE)) return DEFAULT_ROUTE
+
     const walk = (list: RouteMenu[]): string => {
       for (const m of list) {
         if (m.type === 2 && m.path) return m.path
@@ -453,7 +467,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }
       return ''
     }
-    return walk(menus) || '/dashboard'
+    return walk(menus) || DEFAULT_ROUTE
   }, [menus])
 
   useEffect(() => {

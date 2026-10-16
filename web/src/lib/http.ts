@@ -18,6 +18,14 @@ const THEME_KEY = 'admin.theme'
 const COLOR_KEY = 'admin.color'
 const SIDEBAR_KEY = 'admin.sidebar-style'
 
+/**
+ * 侧边栏色调联合类型。
+ *
+ * 这里独立声明而非从 @/lib/theme 引入：theme.ts 依赖本文件的 storage，
+ * 反向 import 会形成循环依赖。两者保持一致即可。
+ */
+type SidebarTone = 'default' | 'white' | 'gray' | 'graphite' | 'ink'
+
 export const storage = {
   getToken() {
     return localStorage.getItem(TOKEN_KEY) || ''
@@ -41,13 +49,15 @@ export const storage = {
   setColor(v: string) {
     localStorage.setItem(COLOR_KEY, v)
   },
-  getSidebar() {
+  getSidebar(): SidebarTone {
     // 默认侧边栏背景：墨黑
     const v = localStorage.getItem(SIDEBAR_KEY) || 'ink'
     // 兼容旧的开关值：dark → 墨黑，light → 跟随主题
     if (v === 'dark') return 'ink'
     if (v === 'light') return 'default'
-    return v
+    // 仅接受合法取值，非法/历史脏值一律回落到墨黑
+    const allowed: readonly string[] = ['default', 'white', 'gray', 'graphite', 'ink']
+    return (allowed.includes(v) ? v : 'ink') as SidebarTone
   },
   setSidebar(v: string) {
     localStorage.setItem(SIDEBAR_KEY, v)

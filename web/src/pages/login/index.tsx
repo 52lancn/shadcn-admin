@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuthStore } from '@/lib/api'
+import { resolvePostLoginPath } from '@/lib/routes'
 import { useThemeBootstrap } from '@/lib/theme'
 
 export default function Login() {
@@ -19,7 +20,7 @@ export default function Login() {
 
   useEffect(() => {
     if (token) {
-      navigate(params.get('redirect') || '/dashboard', { replace: true })
+      navigate(resolvePostLoginPath(params.get('redirect')), { replace: true })
     }
   }, [token, navigate, params])
 
@@ -29,7 +30,7 @@ export default function Login() {
     try {
       await login(form.username, form.password)
       toast.success('登录成功')
-      navigate(params.get('redirect') || '/dashboard', { replace: true })
+      navigate(resolvePostLoginPath(params.get('redirect')), { replace: true })
     } catch (e: unknown) {
       toast.error(e instanceof Error ? e.message : '登录失败')
     } finally {
