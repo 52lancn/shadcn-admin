@@ -1,0 +1,42 @@
+name: Deploy Frontend Preview to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 或者是你的主分支名，比如 master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install Dependencies
+        run: |
+          cd web
+          pnpm install
+
+      - name: Build Mock Preview
+        run: |
+          cd web
+          pnpm build:preview
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: web/dist # 将打包生成的静态文件夹部署上去
+          branch: gh-pages # 部署到远程的 gh-pages 分支
