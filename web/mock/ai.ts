@@ -206,7 +206,7 @@ function analyze(text: string) {
 }
 
 /* ---------- 用量记录（每次 AI 调用追加，刷新后回到种子） ---------- */
-interface Record {
+interface AiRecord {
   id: number
   task: string
   taskLabel: string
@@ -233,7 +233,7 @@ const TASK_LABELS: Record<string, string> = {
   sentiment: '情感分析',
 }
 
-let records: Record[] = [
+let records: AiRecord[] = [
   { id: 1, task: 'generate', taskLabel: '内容生成', scene: 'product', model: 'openai/gpt-4o-mini', vendor: 'GitHub Models', promptTokens: 96, completionTokens: 218, totalTokens: 314, elapsed: 1240, mocked: 0, input: '为「降噪蓝牙耳机 Pro」写电商详情页文案', output: '【降噪蓝牙耳机 Pro · 详情页文案】…', userId: 1, createdAt: daysAgo(6) },
   { id: 2, task: 'translate', taskLabel: '智能翻译', scene: 'general', model: 'openai/gpt-4o-mini', vendor: 'GitHub Models', promptTokens: 52, completionTokens: 128, totalTokens: 180, elapsed: 860, mocked: 0, input: '[Auto→English] 本店新品上市，全场包邮', output: 'New arrivals are now live. Free shipping storewide…', userId: 1, createdAt: daysAgo(6) },
   { id: 3, task: 'sentiment', taskLabel: '情感分析', scene: 'feedback', model: 'openai/gpt-4o-mini', vendor: 'GitHub Models', promptTokens: 148, completionTokens: 86, totalTokens: 234, elapsed: 640, mocked: 0, input: '物流太慢了，等了一个星期才到…', output: 'negative / medium / score=-0.5', userId: 1, createdAt: daysAgo(5) },
@@ -383,7 +383,7 @@ function buildUsage() {
   }))
 
   // 近 7 天趋势
-  const daily: { date: string; cnt: number; totalTokens: number; elapsed: number }[] = []
+  const daily: { date: string; cnt: number; totalTokens: number; avgElapsed: number }[] = []
   for (let i = 6; i >= 0; i--) {
     const day = daysAgo(i).slice(0, 10)
     const rows = records.filter((r) => r.createdAt.startsWith(day))
