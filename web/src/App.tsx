@@ -13,6 +13,10 @@ import DemoDataList from '@/pages/demo/DataList'
 import DemoGallery from '@/pages/demo/Gallery'
 import DemoCharts from '@/pages/demo/Charts'
 import DemoScreen from '@/pages/demo/Screen'
+import AiContentStudio from '@/pages/ai/ContentStudio'
+import AiTranslate from '@/pages/ai/Translate'
+import AiSentiment from '@/pages/ai/Sentiment'
+import AiUsage from '@/pages/ai/Usage'
 import { useAuthStore, type RouteMenu } from '@/lib/api'
 import { storage } from '@/lib/http'
 
@@ -51,6 +55,11 @@ const componentMap: Record<string, React.ComponentType> = {
   'demo/Gallery/index': DemoGallery,
   'demo/Charts/index': DemoCharts,
   'demo/Screen/index': DemoScreen,
+  // AI intelligent content & operations
+  'ai/ContentStudio/index': AiContentStudio,
+  'ai/Translate/index': AiTranslate,
+  'ai/Sentiment/index': AiSentiment,
+  'ai/Usage/index': AiUsage,
 }
 
 function renderRouteByComponent(co: string) {

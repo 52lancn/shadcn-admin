@@ -86,6 +86,33 @@ func RegisterHandlers(server *rest.Server, svcCtx *svc.ServiceContext) {
 		// ---- Phase 2: demo: charts + monitor ----
 		{Method: http.MethodGet, Path: "/api/demo/charts/overview", Handler: ChartOverviewHandler(svcCtx)},
 		{Method: http.MethodGet, Path: "/api/demo/monitor/snapshot", Handler: MonitorSnapshotHandler(svcCtx)},
+
+		// ---- AI: 智能内容与运营 ----
+		// AIGC: generate / polish / expand / continue
+		{Method: http.MethodPost, Path: "/api/ai/generate", Handler: AiGenerateHandler(svcCtx)},
+		{Method: http.MethodGet, Path: "/api/ai/presets", Handler: AiPresetListHandler(svcCtx)},
+
+		// translation
+		{Method: http.MethodPost, Path: "/api/ai/translate", Handler: AiTranslateHandler(svcCtx)},
+
+		// sentiment analysis + real-time alerting
+		{Method: http.MethodPost, Path: "/api/ai/sentiment/analyze", Handler: AiSentimentAnalyzeHandler(svcCtx)},
+		{Method: http.MethodPost, Path: "/api/ai/sentiment/bulk", Handler: AiSentimentBulkHandler(svcCtx)},
+
+		// feedback console (the sentiment data source)
+		{Method: http.MethodGet, Path: "/api/ai/feedback", Handler: AiFeedbackListHandler(svcCtx)},
+		{Method: http.MethodPost, Path: "/api/ai/feedback", Handler: AiFeedbackCreateHandler(svcCtx)},
+		{Method: http.MethodPut, Path: "/api/ai/feedback/:id", Handler: AiFeedbackUpdateHandler(svcCtx)},
+		{Method: http.MethodDelete, Path: "/api/ai/feedback/:id", Handler: AiFeedbackDeleteHandler(svcCtx)},
+		{Method: http.MethodGet, Path: "/api/ai/feedback/sources", Handler: AiFeedbackSourcesHandler(svcCtx)},
+		{Method: http.MethodGet, Path: "/api/ai/alerts", Handler: AiAlertListHandler(svcCtx)},
+
+		// usage dashboard + history
+		{Method: http.MethodGet, Path: "/api/ai/usage", Handler: AiUsageHandler(svcCtx)},
+		{Method: http.MethodGet, Path: "/api/ai/records", Handler: AiRecordListHandler(svcCtx)},
+		{Method: http.MethodDelete, Path: "/api/ai/records/:id", Handler: AiRecordDeleteHandler(svcCtx)},
+		{Method: http.MethodDelete, Path: "/api/ai/records", Handler: AiRecordClearHandler(svcCtx)},
+		{Method: http.MethodGet, Path: "/api/ai/status", Handler: AiStatusHandler(svcCtx)},
 	}
 
 	server.AddRoutes(rest.WithMiddleware(authMW, authed...))

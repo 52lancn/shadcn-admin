@@ -1,6 +1,0 @@
-[14196] 15 Oct 07:08:26.568 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
-[14196] 15 Oct 07:08:26.568 # Redis version=5.0.14.1, bits=64, commit=ec77f72d, modified=0, pid=14196, just started
-[14196] 15 Oct 07:08:26.568 # Configuration loaded
-[14196] 15 Oct 07:08:26.581 * Running mode=standalone, port=6380.
-[14196] 15 Oct 07:08:26.581 # Server initialized
-[14196] 15 Oct 07:08:26.581 * Ready to accept connections

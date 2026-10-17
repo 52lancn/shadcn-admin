@@ -8,6 +8,7 @@ import (
 
 	"admin-server/internal/config"
 	"admin-server/internal/model"
+	"admin-server/pkg/llm"
 
 	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/core/stores/redis"
@@ -18,6 +19,11 @@ type ServiceContext struct {
 	Config config.Config
 	DB      sqlx.SqlConn
 	Redis   *redis.Redis
+
+	// LLM is the shared OpenAI-compatible client used by every AI feature.
+	// It degrades to the built-in local engine when unconfigured, so callers
+	// never have to nil-check it.
+	LLM *llm.Client
 
 	// simple in-process permission cache (TTL 30s) to avoid hitting db on every protected request
 	permCache *permCache
@@ -62,12 +68,46 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	if err := pingDB(context.Background(), conn); err != nil {
 		logx.Errorf("mysql ping failed: %v", err)
 	}
+	client := llm.New(llm.Options{
+		BaseURL: c.AI.BaseURL,
+		APIKey:  c.AI.APIKey,
+		Model:   c.AI.Model,
+		Timeout: time.Duration(c.AI.Timeout) * time.Second,
+	})
+	if client.Enabled() {
+		logx.Infof("ai module: vendor=%s model=%s", client.Vendor(), client.Model())
+	} else {
+		logx.Infof("ai module: no BaseURL/APIKey configured, running on the built-in local fallback engine")
+	}
 	return &ServiceContext{
 		Config:    c,
 		DB:        conn,
 		Redis:     rds,
+		LLM:       client,
 		permCache: &permCache{items: make(map[int64]permCacheEntry)},
 	}
+}
+
+// AIStatus describes the current model wiring for the front-end status card.
+// It never leaks the API key.
+func (s *ServiceContext) AIStatus() map[string]interface{} {
+	return map[string]interface{}{
+		"enabled":    s.LLM.Enabled(),
+		"vendor":     s.LLM.Vendor(),
+		"model":      s.LLM.Model(),
+		"temperature": s.Config.AI.Temperature,
+		"maxTokens":  s.Config.AI.MaxTokens,
+		"record":     s.Config.AI.Record,
+		// A friendly hint so an operator knows exactly what to fill in.
+		"hint": aiHint(s.LLM.Enabled()),
+	}
+}
+
+func aiHint(enabled bool) string {
+	if enabled {
+		return "已接入真实模型"
+	}
+	return "未配置 BaseURL/APIKey，当前由本地兜底引擎生成；填入 admin-api.yaml 的 AI 配置即可切换到 DeepSeek / 通义 / Kimi / GLM / Ollama 等任意 OpenAI 兼容模型"
 }
 
 func pingDB(ctx context.Context, conn sqlx.SqlConn) error {

@@ -26,6 +26,20 @@ type Config struct {
 		AllowHeaders     []string
 		AllowCredentials bool
 	}
+
+	// AI configures the OpenAI-compatible chat-completion endpoint used by all
+	// AI features (AIGC copy, translation, sentiment analysis).
+	// Leave BaseURL / APIKey empty to run on the built-in local fallback engine.
+	AI struct {
+		BaseURL     string
+		APIKey      string
+		Model       string
+		Timeout     int64  // seconds
+		Temperature float64
+		MaxTokens   int
+		// Record keeps every generation/translation/analysis in ai_chat_record.
+		Record bool
+	}
 }
 
 // helpers to construct components from config

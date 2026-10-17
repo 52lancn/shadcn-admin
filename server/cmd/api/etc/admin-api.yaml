@@ -21,3 +21,26 @@ CORS:
   AllowMethods: [GET, POST, PUT, DELETE, OPTIONS]
   AllowHeaders: [Content-Type, Authorization, X-Requested-With]
   AllowCredentials: true
+
+# ============================================================
+# AI 模块（OpenAI 兼容协议，改 BaseURL/Model 即可切换厂商）
+# ============================================================
+# BaseURL 留空 => 启用内置本地兜底引擎，功能照常可用（离线演示友好）。
+#
+# 可直接复用的厂商 BaseURL 示例：
+#   DeepSeek      https://api.deepseek.com/v1              deepseek-chat
+#   通义千问      https://dashscope.aliyuncs.com/compatible-mode/v1  qwen-plus
+#   月之暗面      https://api.moonshot.cn/v1               moonshot-v1-8k
+#   智谱 GLM      https://open.bigmodel.cn/api/paas/v4      glm-4-flash
+#   SiliconFlow   https://api.siliconflow.cn/v1           Qwen/Qwen2.5-7B-Instruct
+#   OpenRouter    https://openrouter.ai/api/v1             openai/gpt-4o-mini
+#   本地 Ollama   http://127.0.0.1:11434/v1                qwen2.5:7b
+#   本地 vLLM     http://127.0.0.1:8000/v1                 qwen2.5-7b-instruct
+AI:
+  BaseURL: ""
+  APIKey: ""
+  Model: "gpt-4o-mini"
+  Timeout: 60
+  Temperature: 0.7
+  MaxTokens: 2048
+  Record: true

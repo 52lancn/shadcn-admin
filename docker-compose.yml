@@ -15,12 +15,20 @@ services:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: admin_db
       TZ: Asia/Shanghai
+      # 关键：容器内 mysql 客户端默认字符集是 latin1（LANG=POSIX），
+      # 会导致 docker-entrypoint-initdb.d 导入的 UTF-8 SQL 被按 latin1 逐字节解释，
+      # 存进 utf8mb4 列后变成双重编码乱码（"工作台" 存成 "å·¥ä½œå°"）。
+      # 设 LANG=C.UTF-8 让客户端默认用 utf8mb4，从源头避免乱码。
+      LANG: C.UTF-8
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./server/sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      # demo 业务数据（商品/订单/画廊）：init.sql 不建这几张表，需一并导入，
+      # 否则重建容器后商品页/画廊页无数据。文件内自带 CREATE TABLE IF NOT EXISTS。
+      - ./server/sql/demo_seed.sql:/docker-entrypoint-initdb.d/demo_seed.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot123"]
       interval: 5s
