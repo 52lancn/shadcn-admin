@@ -18,7 +18,8 @@ server/bin/
 # ============================================================
 node_modules/
 dist/
-dist_old/
+dist-preview/
+dist_*/
 *.exe
 *.exe~
 *.dll
