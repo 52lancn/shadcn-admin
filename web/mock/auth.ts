@@ -72,6 +72,24 @@ const adminUser: MockUser = {
         { id: 34, parentId: 3, name: '大屏监控', path: '/demo/screen', component: 'demo/Screen/index', icon: 'Monitor', type: 2, sort: 4, visible: 1, status: 1 },
       ],
     },
+    // AI 智能中心（对应 sys_menu id 100-104，与后端 ai_module.sql 种子一致）
+    {
+      id: 100,
+      parentId: 0,
+      name: 'AI 智能中心',
+      path: '/ai',
+      icon: 'Sparkles',
+      type: 1,
+      sort: 6,
+      visible: 1,
+      status: 1,
+      children: [
+        { id: 101, parentId: 100, name: '内容生成', path: '/ai/content', component: 'ai/ContentStudio/index', icon: 'Wand2', type: 2, sort: 1, visible: 1, status: 1 },
+        { id: 102, parentId: 100, name: '智能翻译', path: '/ai/translate', component: 'ai/Translate/index', icon: 'Languages', type: 2, sort: 2, visible: 1, status: 1 },
+        { id: 103, parentId: 100, name: '舆情情感', path: '/ai/sentiment', component: 'ai/Sentiment/index', icon: 'Radar', type: 2, sort: 3, visible: 1, status: 1 },
+        { id: 104, parentId: 100, name: 'AI 用量', path: '/ai/usage', component: 'ai/Usage/index', icon: 'Activity', type: 2, sort: 4, visible: 1, status: 1 },
+      ],
+    },
     // 系统管理固定在菜单最下方
     {
       id: 2,

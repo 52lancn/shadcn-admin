@@ -1,6 +1,7 @@
 import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer'
 import authMock from '../mock/auth'
 import dataMock from '../mock/data'
+import aiMock from '../mock/ai'
 import type { MockMethod } from 'vite-plugin-mock'
 
 /** 路由特异度：路径段数优先，其次路径长度。段数越多 / 越长 → 越具体。
@@ -30,7 +31,7 @@ function specificity(url: string): number {
  * 同时保留 end:false 对 query string 的容忍（列表接口带 ?page=1 仍能命中）。
  */
 export function setupProdMockServer() {
-  const list = [...authMock, ...dataMock] as MockMethod[]
+  const list = [...authMock, ...dataMock, ...aiMock] as MockMethod[]
   const sorted = [...list].sort((a, b) => {
     if (typeof a.url !== 'string' || typeof b.url !== 'string') return 0
     return specificity(b.url) - specificity(a.url)

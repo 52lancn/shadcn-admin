@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:preview": "vite build --mode preview",
+    "preview:mock": "vite preview --mode preview --host",
     "preview": "vite preview --host"
   },
   "dependencies": {

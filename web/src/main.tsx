@@ -16,10 +16,14 @@ const qc = new QueryClient({
   },
 })
 
+// Vite base：dev / 真实构建为 '/'，mock 预览（build:preview）为 '/shadcn_admin/'。
+// React Router 的 basename 不带尾斜杠；为 '/' 时传空串，等价于不设 basename。
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '')
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={qc}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <TooltipProvider delayDuration={200} skipDelayDuration={0}>
           <App />
           <Toaster richColors position="top-right" closeButton />
