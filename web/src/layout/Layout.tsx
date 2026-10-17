@@ -474,6 +474,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     if (token && !user) loadProfile()
   }, [token, user, loadProfile])
 
+  // 兜底：客户端路由（非整页刷新）导航到根路径 "/" 时，Layout 内嵌套 <Routes> 的
+  // <Route path="/"> 在 App 的 splat 路由（path="/*"）下不会匹配，主内容区会空白。
+  // 这里显式把 "/" 重定向到默认页，覆盖「登录后 redirect=%2F」「点 Logo 回首页」等场景。
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate(firstPath, { replace: true })
+    }
+  }, [location.pathname, firstPath, navigate])
+
   if (loading && !user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">

@@ -28,3 +28,7 @@ shot_*.png
 *.njsproj
 *.sln
 *.sw?
+
+# 本地诊断产物（浏览器截图 / 临时脚本），不入库
+_sandbox_shot.png
+wb_*.mjs
