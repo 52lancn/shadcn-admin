@@ -64,16 +64,16 @@ CREATE TABLE IF NOT EXISTS ai_prompt_preset (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='AI 提示词模板';
 
 -- ============================================================
--- 菜单挂载（挂在「业务示例」之后，与其他一级菜单同级）
--- 幂等：ON DUPLICATE KEY 保证重复执行不会产生重复菜单。
+-- 菜单挂载（一级菜单，sort=40 排在「业务示例」(50) 之上、「工作台」(1) 之下）
+-- 幂等：ON DUPLICATE KEY 保证重复执行不会产生重复菜单，sort 也会被刷新。
 -- ============================================================
 INSERT INTO sys_menu (id, parent_id, name, path, component, icon, type, perms, sort, visible, status) VALUES
-  (100, 0, 'AI 智能中心', '/ai', '', 'Sparkles', 1, '', 60, 1, 1),
+  (100, 0, 'AI 智能中心', '/ai', '', 'Sparkles', 1, '', 40, 1, 1),
   (101, 100, '内容生成', '/ai/content', 'ai/ContentStudio/index', 'Wand2', 2, '', 1, 1, 1),
   (102, 100, '智能翻译', '/ai/translate', 'ai/Translate/index', 'Languages', 2, '', 2, 1, 1),
   (103, 100, '舆情情感', '/ai/sentiment', 'ai/Sentiment/index', 'Radar', 2, '', 3, 1, 1),
   (104, 100, 'AI 用量', '/ai/usage', 'ai/Usage/index', 'Activity', 2, '', 4, 1, 1)
-ON DUPLICATE KEY UPDATE name = name, path = VALUES(path), component = VALUES(component), icon = VALUES(icon);
+ON DUPLICATE KEY UPDATE name = name, path = VALUES(path), component = VALUES(component), icon = VALUES(icon), sort = VALUES(sort);
 
 -- super admin role gets every menu
 INSERT INTO sys_role_menu (role_id, menu_id)

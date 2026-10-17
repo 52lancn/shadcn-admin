@@ -55,24 +55,7 @@ const adminUser: MockUser = {
       visible: 1,
       status: 1,
     },
-    {
-      id: 3,
-      parentId: 0,
-      name: '业务示例',
-      path: '/demo',
-      icon: 'Boxes',
-      type: 1,
-      sort: 2,
-      visible: 1,
-      status: 1,
-      children: [
-        { id: 31, parentId: 3, name: '数据列表', path: '/demo/datalist', component: 'demo/DataList/index', icon: 'Table', type: 2, sort: 1, visible: 1, status: 1 },
-        { id: 32, parentId: 3, name: '图片画廊', path: '/demo/gallery', component: 'demo/Gallery/index', icon: 'Image', type: 2, sort: 2, visible: 1, status: 1 },
-        { id: 33, parentId: 3, name: '图表分析', path: '/demo/charts', component: 'demo/Charts/index', icon: 'BarChart3', type: 2, sort: 3, visible: 1, status: 1 },
-        { id: 34, parentId: 3, name: '大屏监控', path: '/demo/screen', component: 'demo/Screen/index', icon: 'Monitor', type: 2, sort: 4, visible: 1, status: 1 },
-      ],
-    },
-    // AI 智能中心（对应 sys_menu id 100-104，与后端 ai_module.sql 种子一致）
+    // AI 智能中心（对应 sys_menu id 100-104，sort=40 与后端 ai_module.sql 种子一致，排在业务示例之上）
     {
       id: 100,
       parentId: 0,
@@ -80,7 +63,7 @@ const adminUser: MockUser = {
       path: '/ai',
       icon: 'Sparkles',
       type: 1,
-      sort: 6,
+      sort: 40,
       visible: 1,
       status: 1,
       children: [
@@ -88,6 +71,23 @@ const adminUser: MockUser = {
         { id: 102, parentId: 100, name: '智能翻译', path: '/ai/translate', component: 'ai/Translate/index', icon: 'Languages', type: 2, sort: 2, visible: 1, status: 1 },
         { id: 103, parentId: 100, name: '舆情情感', path: '/ai/sentiment', component: 'ai/Sentiment/index', icon: 'Radar', type: 2, sort: 3, visible: 1, status: 1 },
         { id: 104, parentId: 100, name: 'AI 用量', path: '/ai/usage', component: 'ai/Usage/index', icon: 'Activity', type: 2, sort: 4, visible: 1, status: 1 },
+      ],
+    },
+    {
+      id: 3,
+      parentId: 0,
+      name: '业务示例',
+      path: '/demo',
+      icon: 'Boxes',
+      type: 1,
+      sort: 50,
+      visible: 1,
+      status: 1,
+      children: [
+        { id: 31, parentId: 3, name: '数据列表', path: '/demo/datalist', component: 'demo/DataList/index', icon: 'Table', type: 2, sort: 1, visible: 1, status: 1 },
+        { id: 32, parentId: 3, name: '图片画廊', path: '/demo/gallery', component: 'demo/Gallery/index', icon: 'Image', type: 2, sort: 2, visible: 1, status: 1 },
+        { id: 33, parentId: 3, name: '图表分析', path: '/demo/charts', component: 'demo/Charts/index', icon: 'BarChart3', type: 2, sort: 3, visible: 1, status: 1 },
+        { id: 34, parentId: 3, name: '大屏监控', path: '/demo/screen', component: 'demo/Screen/index', icon: 'Monitor', type: 2, sort: 4, visible: 1, status: 1 },
       ],
     },
     // 系统管理固定在菜单最下方
@@ -98,7 +98,7 @@ const adminUser: MockUser = {
       path: '/system',
       icon: 'Settings',
       type: 1,
-      sort: 9,
+      sort: 100,
       visible: 1,
       status: 1,
       children: [
