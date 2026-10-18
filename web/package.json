@@ -5,7 +5,8 @@
   "type": "module",
   "packageManager": "pnpm@12.11.2",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5175 --host",
+    "dev:mock": "vite --mode mock --port 5173 --host",
     "build": "tsc -b && vite build",
     "build:preview": "vite build --mode preview",
     "preview:mock": "vite preview --mode preview --host",
