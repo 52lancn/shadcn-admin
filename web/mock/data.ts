@@ -300,7 +300,7 @@ interface ConfigVO {
 
 let configs: ConfigVO[] = [
   { id: 1, name: '系统名称', key: 'sys.name', value: 'Admin Console', remark: '登录页与页脚展示名称', status: 1, createdAt: '2026-01-05 10:00:00' },
-  { id: 2, name: '默认主题', key: 'ui.theme', value: 'emerald', remark: 'emerald / blue / violet', status: 1, createdAt: '2026-01-05 10:05:00' },
+  { id: 2, name: '默认主题', key: 'ui.theme', value: 'violet', remark: 'violet / blue / emerald', status: 1, createdAt: '2026-01-05 10:05:00' },
   { id: 3, name: '侧边栏风格', key: 'ui.sidebar', value: 'ink', remark: 'ink 墨黑 / default 跟随主题', status: 1, createdAt: '2026-01-05 10:06:00' },
   { id: 4, name: '登录会话时长(秒)', key: 'auth.expire', value: '7200', remark: 'token 有效期', status: 1, createdAt: '2026-01-06 09:00:00' },
   { id: 5, name: '列表默认每页', key: 'ui.pageSize', value: '10', remark: '分页默认条数', status: 1, createdAt: '2026-01-06 09:05:00' },

@@ -164,7 +164,7 @@ ON DUPLICATE KEY UPDATE role_id=role_id;
 INSERT INTO sys_config (name, config_key, config_value, remark, status) VALUES
   ('系统名称', 'sys.title', 'Admin Console', '页面与登录页标题', 1),
   ('系统副标题', 'sys.subtitle', 'shadcn/ui + go-zero | Senior Dev Framework', '登录页副标题', 1),
-  ('主题默认色', 'sys.theme', 'zinc', '主题色名 zinc/gray/blue/green', 1)
+  ('主题默认色', 'sys.theme', 'violet', '主题色名 violet/zinc/blue/green', 1)
 ON DUPLICATE KEY UPDATE name=name;
 
 -- ---------- sample dict ----------

@@ -43,8 +43,8 @@ export const storage = {
     localStorage.setItem(THEME_KEY, v)
   },
   getColor() {
-    // 默认主色：翡翠绿
-    return localStorage.getItem(COLOR_KEY) || 'emerald'
+    // 默认主色：紫罗兰
+    return localStorage.getItem(COLOR_KEY) || 'violet'
   },
   setColor(v: string) {
     localStorage.setItem(COLOR_KEY, v)
