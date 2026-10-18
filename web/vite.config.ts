@@ -1,7 +1,27 @@
 import { defineConfig, loadEnv, type ConfigEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import fs from 'fs'
 import { viteMockServe } from 'vite-plugin-mock'
+
+// 生成 404.html 作为 SPA 兜底：深链刷新 / 任意未知路由直接回退到 index.html，
+// 由前端路由接管。对所有静态托管（Vercel / Netlify / GitHub Pages）均有效，
+// 与 vercel.json 的 rewrites 互为双保险，避免「刷新即 404、整页打不开」。
+function spaFallback404() {
+  return {
+    name: 'spa-fallback-404',
+    apply: 'build' as const,
+    closeBundle() {
+      const dist = path.resolve(__dirname, 'dist')
+      const index = path.join(dist, 'index.html')
+      const fallback = path.join(dist, '404.html')
+      if (fs.existsSync(index)) {
+        fs.copyFileSync(index, fallback)
+        console.log('[spa-fallback-404] 已生成 dist/404.html')
+      }
+    },
+  }
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv) => {
@@ -21,6 +41,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
     cacheDir: useMock ? 'node_modules/.vite-mock' : 'node_modules/.vite',
     plugins: [
       react(),
+      spaFallback404(),
       // 仅 Mock 轨道启用 vite-plugin-mock
       ...(useMock
         ? [
